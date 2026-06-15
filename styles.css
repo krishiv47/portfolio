@@ -412,6 +412,30 @@ em { font-style: italic; }
 .about__body p { color: var(--ink-soft); margin-bottom: 18px; max-width: 42em; }
 .about__body a { color: var(--accent); border-bottom: 1px solid var(--accent-wash); }
 .about__body a:hover { border-color: var(--accent); }
+.facts {
+  margin-top: 28px;
+  display: grid;
+  gap: 14px;
+  border-top: 1px solid var(--line);
+  padding-top: 24px;
+}
+.facts > div {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  gap: 16px;
+  align-items: baseline;
+}
+.facts dt {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 12.5px;
+  text-transform: uppercase;
+  letter-spacing: .04em;
+  color: var(--ink-faint);
+}
+.facts dd { font-size: 15px; color: var(--ink); }
+@media (max-width: 520px) {
+  .facts > div { grid-template-columns: 1fr; gap: 2px; }
+}
 .skills { margin-top: 30px; }
 .skills__title {
   font-size: 13px;

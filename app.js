@@ -40,47 +40,49 @@ const projects = [
   },
 ];
 
-/* ---------- COMPETITIONS ----------
-   Replace the placeholder entries below with your real ones.
+/* ---------- COMPETITIONS / HACKATHONS ----------
    Shape: { result, event, year, detail, link? }
-   Set placeholder:true to render the dashed "add yours" style.   */
+   (Sourced from LinkedIn — these are participation/appreciation certs.)  */
 const competitions = [
   {
-    placeholder: true,
-    result: "Placement",
-    event: "Hackathon / competition name",
-    year: "2025",
-    detail: "What you built and the outcome — replace this with a real entry.",
+    result: "Participant",
+    event: "DRON-O-WAR 1.0 — JIIT",
+    year: "Jun 2026",
+    detail: "Designed and showcased an Air Midline Interception Detection Drone at JIIT's ECE drone competition.",
   },
   {
-    placeholder: true,
-    result: "Award",
-    event: "Hackathon / competition name",
-    year: "2025",
-    detail: "What you built and the outcome — replace this with a real entry.",
+    result: "Participant",
+    event: "Devcation Delhi 2026 — Hack 'N' Solve",
+    year: "Apr 2026",
+    detail: "Hackathon organised by Google Developer Groups (GDG), hosted on Unstop.",
   },
   {
-    placeholder: true,
-    result: "Finalist",
-    event: "Hackathon / competition name",
-    year: "2024",
-    detail: "What you built and the outcome — replace this with a real entry.",
+    result: "Participant",
+    event: "Climate Data Hackathon — Delhi Edition",
+    year: "Mar 2026",
+    detail: "Built a data-driven entry for climate & environmental challenges. “Sometimes you win, sometimes you learn.”",
+  },
+  {
+    result: "Certificate of Appreciation",
+    event: "TECHBLOCKS 11.1 — IEEE SB, JIIT",
+    year: "2025–26",
+    detail: "Recognised in the Agentic AI domain at the IEEE Student Branch's flagship technical program.",
   },
 ];
 
 /* ---------- ACHIEVEMENT STATS (auto-derived where possible) ---------- */
 const stats = [
   { num: projects.length, label: "Projects shipped" },
+  { num: competitions.length, label: "Competitions & hackathons" },
   { num: projects.filter((p) => p.live).length, label: "Live deployments" },
-  { num: "5+", label: "Languages used" },
-  { num: "AI", label: "Core focus" },
+  { num: "5", label: "Languages" },
 ];
 
 /* ---------- SKILLS ---------- */
 const skills = [
-  "Python", "JavaScript", "TypeScript", "HTML / CSS",
+  "Python", "C++", "Java", "C", "SQL",
   "Agentic AI", "Simulation", "Computer Vision",
-  "Graph algorithms", "Leaflet / Maps", "Docker",
+  "Embedded & Hardware", "AutoCAD", "Graph algorithms", "Leaflet / Maps",
 ];
 
 /* ============================================================= */
