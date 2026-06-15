@@ -3,11 +3,15 @@
    To update the site, edit the arrays below. No build step.
    ============================================================= */
 
-/* Always open at the top on load/refresh — stop the browser from
-   restoring the previous scroll position. (Nav links still jump to
-   their section because that's a click, and #hash deep links still work.) */
+/* Always open at the top on load/refresh: stop the browser restoring the
+   previous scroll position, and drop any leftover #section hash so a refresh
+   never re-jumps mid-page. Nav links still smooth-scroll — that happens on
+   click, not on load. */
 if ("scrollRestoration" in history) {
   history.scrollRestoration = "manual";
+}
+if (location.hash) {
+  history.replaceState(null, "", location.pathname + location.search);
 }
 
 /* ---------- PROJECTS (sourced from github.com/krishiv47) ---------- */
@@ -163,8 +167,8 @@ function statCard(s) {
 }
 
 function mount() {
-  // On a plain load/refresh (no #section in the URL), start at the very top.
-  if (!location.hash) window.scrollTo(0, 0);
+  // Belt-and-suspenders: pin to the very top on load/refresh (no animation).
+  window.scrollTo({ top: 0, left: 0, behavior: "instant" });
 
   const grid = document.getElementById("projects-grid");
   if (grid) grid.innerHTML = projects.map(projectCard).join("");
