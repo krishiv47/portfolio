@@ -36,6 +36,7 @@ const projects = [
     desc: "A small research space — “AI and beyond AI” — published as a lightweight live site.",
     tags: ["Research", "AI"],
     live: "https://krishiv47.github.io/BrahmaMind/",
+    liveLabel: "Website",
     source: "https://github.com/krishiv47/BrahmaMind",
   },
 ];
@@ -47,26 +48,30 @@ const competitions = [
   {
     result: "Participant",
     event: "DRON-O-WAR 1.0 — JIIT",
-    year: "Jun 2026",
-    detail: "Designed and showcased an Air Midline Interception Detection Drone at JIIT's ECE drone competition.",
+    year: "May 2026",
+    detail: "Built an Air Midline Interception Detection Drone for the Drone Design & Innovation track at JIIT, Noida (2–3 May 2026).",
+    cert: "assets/cert-dronowar.jpg",
   },
   {
     result: "Participant",
-    event: "Devcation Delhi 2026 — Hack 'N' Solve",
+    event: "Devcation Delhi 2026",
     year: "Apr 2026",
-    detail: "Hackathon organised by Google Developer Groups (GDG), hosted on Unstop.",
+    detail: "Hackathon by Google Developer Groups on Campus — IGDTUW × IIT Delhi.",
+    cert: "assets/cert-devcation.jpg",
   },
   {
     result: "Participant",
     event: "Climate Data Hackathon — Delhi Edition",
-    year: "Mar 2026",
-    detail: "Built a data-driven entry for climate & environmental challenges. “Sometimes you win, sometimes you learn.”",
+    year: "Feb 2026",
+    detail: "Data-driven entry for climate & environmental challenges, hosted by RIDE at JIIT. “Sometimes you win, sometimes you learn.”",
+    cert: "assets/cert-climate.jpg",
   },
   {
     result: "Certificate of Appreciation",
     event: "TECHBLOCKS 11.1 — IEEE SB, JIIT",
     year: "2025–26",
     detail: "Recognised in the Agentic AI domain at the IEEE Student Branch's flagship technical program.",
+    cert: "assets/cert-techblocks.jpg",
   },
 ];
 
@@ -100,7 +105,7 @@ function projectCard(p) {
     : "";
   const featBadge = p.featured ? `<span class="card__badge">Flagship</span>` : "";
   const liveLink = p.live
-    ? `<a href="${esc(p.live)}" target="_blank" rel="noopener">Live demo ↗</a>`
+    ? `<a href="${esc(p.live)}" target="_blank" rel="noopener">${esc(p.liveLabel || "Live demo")} ↗</a>`
     : `<span class="muted">Demo offline</span>`;
   return `
     <article class="card${p.featured ? " card--featured" : ""}">
@@ -123,6 +128,13 @@ function competitionItem(c) {
   const detail = c.link
     ? `<a href="${esc(c.link)}" target="_blank" rel="noopener">${esc(c.detail)} ↗</a>`
     : esc(c.detail);
+  const cert = c.cert
+    ? `<a class="t-cert" href="${esc(c.cert)}" target="_blank" rel="noopener"
+          aria-label="View ${esc(c.event)} certificate">
+         <img src="${esc(c.cert)}" alt="${esc(c.event)} certificate" loading="lazy" />
+         <span class="t-cert__hint">View certificate ↗</span>
+       </a>`
+    : "";
   return `
     <li class="t-item${cls}">
       <div class="t-meta">
@@ -131,6 +143,7 @@ function competitionItem(c) {
       </div>
       <div class="t-name">${esc(c.event)}</div>
       <p class="t-detail">${detail}</p>
+      ${cert}
     </li>`;
 }
 
