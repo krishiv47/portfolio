@@ -3,16 +3,8 @@
    To update the site, edit the arrays below. No build step.
    ============================================================= */
 
-/* Always open at the top on load/refresh: stop the browser restoring the
-   previous scroll position, and drop any leftover #section hash so a refresh
-   never re-jumps mid-page. Nav links still smooth-scroll — that happens on
-   click, not on load. */
-if ("scrollRestoration" in history) {
-  history.scrollRestoration = "manual";
-}
-if (location.hash) {
-  history.replaceState(null, "", location.pathname + location.search);
-}
+/* (Start-at-top-on-load is handled by an inline script in <head> so it runs
+   before the page renders.) */
 
 /* ---------- PROJECTS (sourced from github.com/krishiv47) ---------- */
 const projects = [

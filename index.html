@@ -3,6 +3,14 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script>
+    /* Start every load/refresh at the top: disable the browser's scroll
+       restoration and drop any #section hash before the page renders, so it
+       never re-jumps mid-page. Runs in <head> so it beats the fragment scroll.
+       Nav links still smooth-scroll because that happens on click, not load. */
+    if ("scrollRestoration" in history) history.scrollRestoration = "manual";
+    if (location.hash) history.replaceState(null, "", location.pathname + location.search);
+  </script>
   <title>Krishiv Chawla — AI Developer &amp; Real-Life Problem Solver</title>
   <meta name="description" content="Krishiv Chawla — building agentic AI to solve real-life problems. Projects, competitions, and live demos." />
 
