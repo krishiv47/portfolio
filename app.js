@@ -3,6 +3,13 @@
    To update the site, edit the arrays below. No build step.
    ============================================================= */
 
+/* Always open at the top on load/refresh — stop the browser from
+   restoring the previous scroll position. (Nav links still jump to
+   their section because that's a click, and #hash deep links still work.) */
+if ("scrollRestoration" in history) {
+  history.scrollRestoration = "manual";
+}
+
 /* ---------- PROJECTS (sourced from github.com/krishiv47) ---------- */
 const projects = [
   {
@@ -156,6 +163,9 @@ function statCard(s) {
 }
 
 function mount() {
+  // On a plain load/refresh (no #section in the URL), start at the very top.
+  if (!location.hash) window.scrollTo(0, 0);
+
   const grid = document.getElementById("projects-grid");
   if (grid) grid.innerHTML = projects.map(projectCard).join("");
 
