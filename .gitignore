@@ -1,0 +1,7 @@
+.DS_Store
+node_modules/
+*.log
+
+# local dev helpers (machine-specific paths)
+.claude/
+serve.py
