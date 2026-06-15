@@ -119,6 +119,8 @@ em { font-style: italic; }
   border: 3px solid #fff;
   box-shadow: var(--shadow);
   margin-bottom: 28px;
+  object-fit: cover;
+  background: var(--bg-alt);
 }
 .hero__eyebrow {
   font-family: "JetBrains Mono", monospace;
