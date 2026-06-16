@@ -44,6 +44,27 @@ const projects = [
   },
 ];
 
+/* ---------- EXPERIENCE ----------
+   Shape: { role, org, period, location, detail, link? }
+   (Sourced from LinkedIn.)  */
+const experience = [
+  {
+    role: "Co-Founder",
+    org: "BrahmaMind",
+    period: "Jul 2025 — Present",
+    location: "Part-time · Delhi, India",
+    detail: "Co-founded BrahmaMind, an early-stage deep-tech research initiative.",
+    link: "https://krishiv47.github.io/BrahmaMind/",
+  },
+  {
+    role: "Volunteer",
+    org: "NSS JIIT",
+    period: "Jun 2026 — Present",
+    location: "Noida, Uttar Pradesh, India",
+    detail: "Volunteering with the National Service Scheme chapter at JIIT.",
+  },
+];
+
 /* ---------- COMPETITIONS / HACKATHONS ----------
    Shape: { result, event, year, detail, link? }
    (Sourced from LinkedIn — these are participation/appreciation certs.)  */
@@ -126,6 +147,21 @@ function projectCard(p) {
     </article>`;
 }
 
+function experienceItem(e) {
+  const org = e.link
+    ? `<a href="${esc(e.link)}" target="_blank" rel="noopener">${esc(e.org)} ↗</a>`
+    : esc(e.org);
+  return `
+    <li class="t-item">
+      <div class="t-meta">
+        <span class="t-result">${esc(e.period)}</span>
+        <span>${esc(e.location)}</span>
+      </div>
+      <div class="t-name">${esc(e.role)} · ${org}</div>
+      <p class="t-detail">${esc(e.detail)}</p>
+    </li>`;
+}
+
 function competitionItem(c) {
   const cls = c.placeholder ? " t-item--placeholder" : "";
   const detail = c.link
@@ -164,6 +200,9 @@ function mount() {
 
   const grid = document.getElementById("projects-grid");
   if (grid) grid.innerHTML = projects.map(projectCard).join("");
+
+  const exp = document.getElementById("experience-list");
+  if (exp) exp.innerHTML = experience.map(experienceItem).join("");
 
   const comp = document.getElementById("competitions-list");
   if (comp) {
