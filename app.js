@@ -78,6 +78,26 @@ const competitions = [
   },
 ];
 
+/* ---------- EXPERIENCE (from LinkedIn) ---------- */
+const experience = [
+  {
+    role: "Volunteer",
+    org: "NSS JIIT",
+    period: "Jun 2026 — Present",
+    location: "Noida, Uttar Pradesh, India",
+    detail: "National Service Scheme — student volunteering and community-service initiatives at JIIT.",
+  },
+  {
+    role: "Co-Founder",
+    org: "BrahmaMind",
+    type: "Part-time",
+    period: "Jul 2025 — Present",
+    location: "Delhi, India",
+    detail: "Early-stage deep-tech research initiative.",
+    link: "https://krishiv47.github.io/BrahmaMind/",
+  },
+];
+
 /* ---------- ACHIEVEMENT STATS (auto-derived where possible) ---------- */
 const stats = [
   { num: projects.length, label: "Projects shipped" },
@@ -150,6 +170,22 @@ function competitionItem(c) {
     </li>`;
 }
 
+function experienceItem(e) {
+  const type = e.type ? `${esc(e.type)} · ` : "";
+  const link = e.link
+    ? ` <a class="exp-link" href="${esc(e.link)}" target="_blank" rel="noopener">Visit ↗</a>`
+    : "";
+  return `
+    <li class="exp-item">
+      <div class="exp-head">
+        <h3 class="exp-role">${esc(e.role)} <span class="exp-org">· ${esc(e.org)}</span></h3>
+        <span class="exp-period">${esc(e.period)}</span>
+      </div>
+      <div class="exp-meta">${type}${esc(e.location)}</div>
+      <p class="exp-detail">${esc(e.detail)}${link}</p>
+    </li>`;
+}
+
 function statCard(s) {
   return `
     <div class="stat">
@@ -175,6 +211,9 @@ function mount() {
       );
     }
   }
+
+  const expList = document.getElementById("experience-list");
+  if (expList) expList.innerHTML = experience.map(experienceItem).join("");
 
   const statsRow = document.getElementById("stats-row");
   if (statsRow) statsRow.innerHTML = stats.map(statCard).join("");

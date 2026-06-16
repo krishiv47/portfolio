@@ -487,6 +487,51 @@ em { font-style: italic; }
   .about { grid-template-columns: 1fr; }
 }
 
+/* ===== Experience ===== */
+.exp { list-style: none; }
+.exp-item {
+  padding: 24px 0;
+  border-top: 1px solid var(--line);
+}
+.exp-item:first-child { border-top: none; padding-top: 0; }
+.exp-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.exp-role {
+  font-family: "Fraunces", Georgia, serif;
+  font-weight: 500;
+  font-size: 21px;
+  letter-spacing: -.01em;
+}
+.exp-org { color: var(--accent); }
+.exp-period {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 12.5px;
+  color: var(--ink-faint);
+  white-space: nowrap;
+}
+.exp-meta {
+  margin-top: 4px;
+  font-size: 13.5px;
+  color: var(--ink-faint);
+}
+.exp-detail {
+  margin-top: 8px;
+  color: var(--ink-soft);
+  font-size: 15px;
+}
+.exp-link {
+  color: var(--accent);
+  font-weight: 500;
+  border-bottom: 1px solid transparent;
+  transition: border-color .18s ease;
+}
+.exp-link:hover { border-color: var(--accent); }
+
 /* ===== Footer ===== */
 .footer {
   border-top: 1px solid var(--line);
