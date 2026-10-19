@@ -1,20 +1,22 @@
 /* ===== Tokens ===== */
 :root {
-  --bg: #ffffff;
-  --bg-alt: #f7f7f4;
-  --ink: #18181b;
-  --ink-soft: #52525b;
-  --ink-faint: #a1a1aa;
-  --line: #e7e7e3;
-  --line-strong: #d4d4d0;
-  --accent: #047857;
-  --accent-bright: #10b981;
-  --accent-wash: #ecfdf5;
+  --bg: #fbe6ca;
+  --bg-alt: #f6dab5;
+  --surface: #fef4e6;
+  --ink: #1f1311;
+  --ink-soft: #5b4139;
+  --ink-faint: #a58d7b;
+  --line: #ecd0ab;
+  --line-strong: #ddb990;
+  --accent: #8b0b0b;
+  --accent-bright: #b5121b;
+  --accent-wash: #f7d6c3;
+  --accent-line: #e7ad98;
   --max: 1080px;
   --pad: clamp(20px, 5vw, 48px);
   --r: 14px;
-  --shadow: 0 1px 2px rgba(24, 24, 27, .04), 0 8px 24px -12px rgba(24, 24, 27, .12);
-  --shadow-lift: 0 2px 4px rgba(24, 24, 27, .05), 0 18px 40px -18px rgba(24, 24, 27, .22);
+  --shadow: 0 1px 2px rgba(60, 20, 10, .05), 0 8px 24px -12px rgba(60, 20, 10, .16);
+  --shadow-lift: 0 2px 4px rgba(60, 20, 10, .06), 0 18px 40px -18px rgba(60, 20, 10, .28);
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -39,7 +41,7 @@ em { font-style: italic; }
   position: sticky;
   top: 0;
   z-index: 50;
-  background: rgba(255, 255, 255, .8);
+  background: rgba(251, 230, 202, .85);
   backdrop-filter: saturate(180%) blur(12px);
   border-bottom: 1px solid var(--line);
 }
@@ -97,14 +99,14 @@ em { font-style: italic; }
   white-space: nowrap;
 }
 .btn--solid {
-  background: var(--ink);
+  background: var(--accent);
   color: #fff;
 }
-.btn--solid:hover { background: var(--accent); transform: translateY(-2px); }
+.btn--solid:hover { background: var(--ink); transform: translateY(-2px); }
 .btn--ghost {
   border-color: var(--line-strong);
   color: var(--ink);
-  background: #fff;
+  background: var(--surface);
 }
 .btn--ghost:hover { border-color: var(--ink); transform: translateY(-2px); }
 
@@ -115,8 +117,9 @@ em { font-style: italic; }
   padding: clamp(56px, 11vw, 120px) var(--pad) clamp(40px, 8vw, 80px);
 }
 .hero__avatar {
-  border-radius: 50%;
-  border: 3px solid #fff;
+  display: block;
+  border-radius: 14px;
+  border: 3px solid var(--surface);
   box-shadow: var(--shadow);
   margin-bottom: 28px;
   object-fit: cover;
@@ -199,7 +202,7 @@ em { font-style: italic; }
 .card {
   display: flex;
   flex-direction: column;
-  background: #fff;
+  background: var(--surface);
   border: 1px solid var(--line);
   border-radius: var(--r);
   padding: 26px;
@@ -212,8 +215,8 @@ em { font-style: italic; }
 }
 .card--featured {
   grid-column: 1 / -1;
-  background: linear-gradient(180deg, var(--accent-wash) 0%, #fff 60%);
-  border-color: #bbf7d0;
+  background: linear-gradient(180deg, var(--accent-wash) 0%, var(--surface) 60%);
+  border-color: var(--accent-line);
 }
 .card__top {
   display: flex;
@@ -228,7 +231,7 @@ em { font-style: italic; }
   text-transform: uppercase;
   color: var(--accent);
   background: var(--accent-wash);
-  border: 1px solid #bbf7d0;
+  border: 1px solid var(--accent-line);
   padding: 3px 9px;
   border-radius: 999px;
 }
@@ -244,13 +247,13 @@ em { font-style: italic; }
 .card__live .dot {
   width: 7px; height: 7px; border-radius: 50%;
   background: var(--accent-bright);
-  box-shadow: 0 0 0 0 rgba(16, 185, 129, .6);
+  box-shadow: 0 0 0 0 rgba(181, 18, 27, .6);
   animation: pulse 2s infinite;
 }
 @keyframes pulse {
-  0% { box-shadow: 0 0 0 0 rgba(16,185,129,.5); }
-  70% { box-shadow: 0 0 0 7px rgba(16,185,129,0); }
-  100% { box-shadow: 0 0 0 0 rgba(16,185,129,0); }
+  0% { box-shadow: 0 0 0 0 rgba(181,18,27,.5); }
+  70% { box-shadow: 0 0 0 7px rgba(181,18,27,0); }
+  100% { box-shadow: 0 0 0 0 rgba(181,18,27,0); }
 }
 .card__name {
   font-family: "Fraunces", Georgia, serif;
@@ -312,7 +315,7 @@ em { font-style: italic; }
   margin-bottom: 44px;
 }
 .stat {
-  background: #fff;
+  background: var(--surface);
   border: 1px solid var(--line);
   border-radius: var(--r);
   padding: 22px;
@@ -358,7 +361,7 @@ em { font-style: italic; }
   left: -28px; top: 5px;
   width: 16px; height: 16px;
   border-radius: 50%;
-  background: #fff;
+  background: var(--surface);
   border: 2px solid var(--accent-bright);
 }
 .t-item--placeholder::before {
@@ -377,7 +380,7 @@ em { font-style: italic; }
 .t-result {
   color: var(--accent);
   background: var(--accent-wash);
-  border: 1px solid #bbf7d0;
+  border: 1px solid var(--accent-line);
   padding: 2px 9px;
   border-radius: 999px;
   font-weight: 500;
@@ -402,7 +405,7 @@ em { font-style: italic; }
   border: 1px solid var(--line);
   border-radius: 10px;
   overflow: hidden;
-  background: #fff;
+  background: var(--surface);
   transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
 }
 .t-cert img { display: block; width: 100%; height: auto; }

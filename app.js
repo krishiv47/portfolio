@@ -6,48 +6,41 @@
 /* (Start-at-top-on-load is handled by an inline script in <head> so it runs
    before the page renders.) */
 
-/* ---------- PROJECTS (sourced from github.com/krishiv47) ---------- */
+/* ---------- PROJECTS (sourced from CV + github.com/krishiv47) ---------- */
 const projects = [
   {
-    name: "EcoShield Delhi",
+    name: "VAYUMitre",
     featured: true,
-    desc: "Agentic AI pollution-control simulation: a fleet of water-sprinkler tankers patrols the real Delhi Metro network, coordinated by a modified multi-objective Dijkstra router. Ships with a live operations dashboard and a driver console.",
-    tags: ["Agentic AI", "Simulation", "Python", "Dijkstra", "Leaflet"],
-    live: "https://krishiv47.github.io/ecoshield-delhi-ai/",
-    source: "https://github.com/krishiv47/ecoshield-delhi-ai",
+    status: "In development",
+    desc: "ML-powered pollution control for Delhi. Turns live data from 42 CPCB air-quality stations into spray-truck dispatch plans — hourly hotspot zoning, likely-source detection and road-routed truck sizing. XGBoost models forecast PM2.5 1–24 hours ahead per station, validated chronologically against persistence and seasonal-naive baselines. Paired with a lignosulfonate-based dust-suppressant spray developed with JIIT's Biotechnology department, targeting a 35–50% PM2.5 cut per pass. Incubated at BioNEST-JIIT.",
+    tags: ["Python", "XGBoost", "scikit-learn", "pandas", "Forecasting"],
+    source: "https://github.com/krishiv47/vayumitre-delhi",
   },
   {
-    name: "RoadSafety Sim",
-    desc: "Real-time road-safety simulation with AI hazard detection — a full stack spanning a computer-vision pipeline, a TypeScript front end, and a containerised Python backend.",
-    tags: ["AI", "Computer Vision", "TypeScript", "Python", "Docker"],
+    name: "Road Safety Simulation + AI Hazard Detection",
+    desc: "Simulates 100 buses on 10 Delhi corridors, streaming live data over WebSockets to a React + Leaflet command dashboard. YOLOv8 + OpenCV detect 8 road hazards, with false alerts cut by confirming each hazard against nearby buses. Incidents auto-escalate to police, ambulance and road authorities — shipped as a single Docker container.",
+    tags: ["Python", "FastAPI", "YOLOv8", "OpenCV", "React", "Docker"],
+    live: "https://roadsafetysim.vercel.app",
     source: "https://github.com/krishiv47/roadsafety-sim",
   },
   {
-    name: "RoadSafety AI",
-    desc: "An earlier road-safety AI build — a Python detection pipeline behind an HTML interface, packaged for cloud deployment.",
-    tags: ["AI", "Python", "HTML"],
-    source: "https://github.com/krishiv47/roadsafety_ai",
-  },
-  {
-    name: "GovGig",
-    desc: "A JavaScript web platform exploring government & gig-work workflows.",
-    tags: ["JavaScript", "Web App"],
-    source: "https://github.com/krishiv47/govgig",
-  },
-  {
-    name: "BrahmaMind",
-    desc: "A small research space — “AI and beyond AI” — published as a lightweight live site.",
-    tags: ["Research", "AI"],
-    live: "https://krishiv47.github.io/BrahmaMind/",
-    liveLabel: "Website",
-    source: "https://github.com/krishiv47/BrahmaMind",
+    name: "GigGuard",
+    desc: "Crash detection & ambulance dispatch for gig riders. Detects crashes from phone motion sensors (2.5G impact + sudden speed drop) and auto-sends an SOS after a 15-second cancel window. A dispatch center with AI injury triage sends the nearest available ambulance from a simulated 12-unit fleet across 8 Delhi hospitals.",
+    tags: ["JavaScript", "Leaflet", "Groq API", "Vercel"],
+    live: "https://gigworker-blond.vercel.app/",
+    source: "https://github.com/krishiv47/gigworker",
   },
 ];
 
 /* ---------- COMPETITIONS / HACKATHONS ----------
-   Shape: { result, event, year, detail, link? }
-   (Sourced from LinkedIn — these are participation/appreciation certs.)  */
+   Shape: { result, event, year, detail, link?, cert? }  */
 const competitions = [
+  {
+    result: "Top 40 / 11,000+",
+    event: "Faraway Hackathon",
+    year: "2026",
+    detail: "Placed in the top 40 out of 11,000+ competing teams.",
+  },
   {
     result: "Participant",
     event: "DRON-O-WAR 1.0 — JIIT",
@@ -78,39 +71,66 @@ const competitions = [
   },
 ];
 
-/* ---------- EXPERIENCE (from LinkedIn) ---------- */
+/* ---------- EXPERIENCE (from CV) ---------- */
 const experience = [
+  {
+    role: "Student Innovator",
+    org: "BioNEST-JIIT Incubation Programme (RIDE Society)",
+    period: "2026 — Present",
+    location: "Noida, India",
+    detail: "Selected to incubate VAYUMitre, with lab access, technical mentorship, and grant, IPR and regulatory support.",
+  },
+  {
+    role: "Mentor — AI Agents Workshop",
+    org: "TechBlocks 12.1, IEEE Student Branch JIIT",
+    period: "Sep 2026",
+    location: "Noida, India",
+    detail: "Mentored 60+ students over 5 days, from AI agent basics to building their own projects, debugging code and solving 100s of doubts.",
+  },
+  {
+    role: "Co-Founder",
+    org: "Elmoak",
+    period: "Jul 2026 — Present",
+    location: "Delhi, India",
+    detail: "Co-founded a digital services startup building client websites, AI agent tools for business automation, and social media management.",
+  },
+  {
+    role: "Volunteer",
+    org: "IEEE Student Branch JIIT",
+    period: "Jul 2026 — Present",
+    location: "Noida, India",
+    detail: "Volunteering with JIIT's IEEE Student Branch on technical events and workshops.",
+  },
   {
     role: "Volunteer",
     org: "NSS JIIT",
     period: "Jun 2026 — Present",
-    location: "Noida, Uttar Pradesh, India",
+    location: "Noida, India",
     detail: "National Service Scheme — student volunteering and community-service initiatives at JIIT.",
   },
   {
-    role: "Co-Founder",
-    org: "BrahmaMind",
-    type: "Part-time",
-    period: "Jul 2025 — Present",
-    location: "Delhi, India",
-    detail: "Early-stage deep-tech research initiative.",
-    link: "https://krishiv47.github.io/BrahmaMind/",
+    role: "Member",
+    org: "Parola — The Literary Hub",
+    period: "Jun 2026 — Present",
+    location: "Noida, India",
+    detail: "JIIT's literary society.",
   },
 ];
 
-/* ---------- ACHIEVEMENT STATS (auto-derived where possible) ---------- */
+/* ---------- ACHIEVEMENT STATS ---------- */
 const stats = [
-  { num: projects.length, label: "Projects shipped" },
-  { num: competitions.length, label: "Competitions & hackathons" },
-  { num: projects.filter((p) => p.live).length, label: "Live deployments" },
-  { num: "5", label: "Languages" },
+  { num: "Top 40", label: "of 11,000+ teams · Faraway Hackathon" },
+  { num: "12+", label: "Hackathons" },
+  { num: "110+", label: "LeetCode problems (Python)" },
+  { num: "60+", label: "Students mentored" },
 ];
 
 /* ---------- SKILLS ---------- */
 const skills = [
-  "Python", "C++", "Java", "C", "SQL",
-  "Agentic AI", "Simulation", "Computer Vision",
-  "Embedded & Hardware", "AutoCAD", "Graph algorithms", "Leaflet / Maps",
+  "Python", "C", "C++", "JavaScript", "TypeScript",
+  "XGBoost", "scikit-learn", "pandas", "NumPy", "YOLOv8", "OpenCV", "LLM APIs", "AI Agents",
+  "React", "FastAPI", "WebSockets", "Leaflet", "Git", "Docker", "Vercel",
+  "Claude Code",
 ];
 
 /* ============================================================= */
@@ -127,9 +147,12 @@ function projectCard(p) {
     ? `<span class="card__live"><span class="dot"></span>Live</span>`
     : "";
   const featBadge = p.featured ? `<span class="card__badge">Flagship</span>` : "";
+  const sourceLink = p.source
+    ? `<a href="${esc(p.source)}" target="_blank" rel="noopener">Source ↗</a>`
+    : "";
   const liveLink = p.live
     ? `<a href="${esc(p.live)}" target="_blank" rel="noopener">${esc(p.liveLabel || "Live demo")} ↗</a>`
-    : `<span class="muted">Demo offline</span>`;
+    : `<span class="muted">${esc(p.status || "Demo offline")}</span>`;
   return `
     <article class="card${p.featured ? " card--featured" : ""}">
       <div class="card__top">
@@ -140,7 +163,7 @@ function projectCard(p) {
       <p class="card__desc">${esc(p.desc)}</p>
       <ul class="chips">${chips}</ul>
       <div class="card__links">
-        <a href="${esc(p.source)}" target="_blank" rel="noopener">Source ↗</a>
+        ${sourceLink}
         ${liveLink}
       </div>
     </article>`;
